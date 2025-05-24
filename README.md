@@ -1,43 +1,55 @@
 # 📊 Analisis dan Prediksi Attrition Karyawan - Proyek Data Science
 
-## Project Overview
-
-Proyek ini bertujuan mengatasi dua permasalahan utama:
-
-- **Pernyataan Masalah 1**  
-  Tingginya tingkat *attrition* (keluar/mundurnya karyawan) yang melebihi 10% pada perusahaan Jaya Jaya Maju, menyebabkan ketidakstabilan dan peningkatan biaya rekrutmen.
-
-- **Pernyataan Masalah 2**  
-  Kurangnya sistem monitoring berbasis data yang dapat membantu manajer HR dalam mengidentifikasi faktor-faktor utama penyebab *attrition* dan mengambil keputusan berbasis data.
-
-### Alur dan Metode Proyek
-
-1. **Business Understanding**
-2. **Data Understanding**
-3. **Data Preparation**
-4. **Modeling (Linear Regression, Ridge, Lasso)**
-5. **Evaluation**
-6. **Deploy / Interpretasi Bisnis**
-
-### Tujuan Proyek
-
-- Mengidentifikasi faktor-faktor utama yang memengaruhi tingkat *attrition* karyawan.
-- Membuat model prediksi *attrition* berdasarkan fitur-fitur karyawan.
-- Menyediakan insight dan dashboard monitoring berbasis data untuk HR.
-
 ## Business Understanding
 
-Jaya Jaya Maju merupakan salah satu perusahaan multinasional yang telah berdiri sejak tahun 2000. Ia memiliki lebih dari 1000 karyawan yang tersebar di seluruh penjuru negeri.
+PT Jaya Jaya Maju adalah perusahaan multinasional yang berdiri sejak tahun 2000 dengan lebih dari 1.000 karyawan yang tersebar di seluruh Indonesia. Meskipun telah berkembang menjadi perusahaan besar, Jaya Jaya Maju menghadapi tantangan dalam pengelolaan sumber daya manusia, terutama tingginya tingkat *attrition* (rasio karyawan yang keluar) yang melebihi 10%. Hal ini menyebabkan ketidakstabilan tim dan peningkatan biaya rekrutmen serta pelatihan.
 
-Walaupun telah menjadi menjadi perusahaan yang cukup besar, Jaya Jaya Maju masih cukup kesulitan dalam mengelola karyawan. Hal ini berimbas tingginya attrition rate (rasio jumlah karyawan yang keluar dengan total karyawan keseluruhan) hingga lebih dari 10%.
+Proyek ini bertujuan membantu departemen HR mengidentifikasi faktor-faktor utama penyebab *attrition* dan menyediakan solusi berbasis data melalui model prediktif dan *business dashboard* untuk memantau serta mengurangi tingkat *attrition*.
 
-Untuk mencegah hal ini semakin parah, manajer departemen HR ingin meminta bantuan Anda mengidentifikasi berbagai faktor yang mempengaruhi tingginya attrition rate tersebut. Selain itu, ia juga meminta Anda untuk membuat business dashboard untuk membantunya memonitori berbagai faktor tersebut. gunakan preddiction analis dengan regression linear dan ada tahap data understanding, data preparation/preprocessingg, modeling dan evaluation
+## Permasalahan Bisnis
 
-## 🎯 Goals
+1. **Tingginya Tingkat Attrition**  
+   Tingkat *attrition* karyawan di Jaya Jaya Maju melebihi 10%, menyebabkan ketidakstabilan tim dan peningkatan biaya rekrutmen.
+2. **Kurangnya Sistem Monitoring Berbasis Data**  
+   Manajer HR kekurangan alat berbasis data untuk mengidentifikasi faktor-faktor penyebab *attrition* dan membuat keputusan yang tepat guna mencegahnya.
 
-- Membangun model regresi untuk memprediksi nilai *Attrition*.
-- Memberikan insight untuk tindakan preventif manajemen SDM.
-- Visualisasi korelasi faktor-faktor seperti usia, pendapatan, dan jarak rumah.
+## Cakupan Proyek
+
+- **Tujuan**:  
+  - Mengidentifikasi faktor utama yang memengaruhi *attrition* karyawan.  
+  - Membangun model prediktif untuk memprediksi kemungkinan karyawan keluar.  
+- **Metode**:  
+  - *Business Understanding*: Memahami konteks bisnis dan kebutuhan HR.  
+  - *Data Understanding*: Analisis dataset untuk memahami karakteristik data.  
+  - *Data Preparation*: Membersihkan data, menangani *missing values*, dan melakukan *feature engineering*.  
+  - *Modeling*: Menerapkan model *Linear Regression*, *Ridge*, dan *Lasso* untuk prediksi *attrition*.  
+  - *Evaluation*: Mengevaluasi performa model menggunakan metrik seperti MSE, RMSE, R², dan MAE.  
+  - *Deployment*: Menyediakan *business dashboard* dan rekomendasi berbasis data.  
+- **Output**:  
+  - Model prediktif *attrition*.  
+  - *Business dashboard* untuk monitoring.  
+  - Rekomendasi strategi retensi karyawan.
+
+## Persiapan
+
+### Sumber Data
+- **Dataset**: Data karyawan berisi 1.470 baris dan 35 kolom, mencakup informasi seperti `EmployeeId`, `Attrition`, `Age`, `MonthlyIncome`, `DistanceFromHome`, dll.  
+- **Tautan**: [Dataset Karyawan](https://github.com/dicodingacademy/dicoding_dataset/tree/main/employee)  
+- **Kondisi Data**:  
+  - *Missing Values*: 412 nilai hilang pada kolom `Attrition`.  
+  - *Duplikasi*: Tidak ada data duplikat.  
+  - *Outlier*: Terdeteksi pada kolom seperti `MonthlyIncome`.  
+  - *Tipe Data*: Campuran numerik (`int`, `float`) dan kategorikal (`object`).  
+
+### Setup Environment
+Dependensi proyek (berdasarkan `requirements.txt`):
+pandas
+matplotlib
+seaborn
+numpy
+scikit-learn
+joblib
+
 
 ## Data Understanding
 
@@ -144,7 +156,8 @@ Kolom dengan missing value: Hanya Attrition (412 missing).
 
 Artinya: Semakin tua, berpengalaman, dan tinggi jabatan/penghasilan, makin kecil kemungkinan keluar.
 
-## 🧹 Data Preparation
+
+## Data Preparation
 
 1. Mengisi Nilai Kosong pada 'Attrition':
 
@@ -262,7 +275,8 @@ Label validasi (y_val): 220 baris
 
 Label test (y_test): 221 baris
 
-## Modelling
+## Modeling
+
 ⚙️ Proses Model Training (Linear Regression)
 1. Inisialisasi Model
 
@@ -339,7 +353,7 @@ Jika sebaliknya, maka Lasso yang dipilih.
 
 Dicetak juga nilai hyperparameter (alpha) dari model terbaik.
 
-## 📈 Evaluation
+## Evaluation
 
 Hasil Evaluasi
 - MSE (Mean Squared Error): 0.0815
@@ -370,69 +384,32 @@ Nilai R-squared menunjukkan bahwa kemampuan prediksi model masih terbatas. Perfo
 Dalam konteks bisnis seperti prediksi attrition (keluar-masuk karyawan), model yang lebih akurat sangat penting untuk mengidentifikasi dan mengurangi risiko turnover.
 Nilai RMSE dan MAE memberikan gambaran seberapa besar kesalahan dalam prediksi. Model saat ini dapat dijadikan titik awal, namun diperlukan peningkatan agar hasilnya lebih bermanfaat secara praktis.
 
-### 🎯 Evaluasi terhadap Problem Statement dan Goals
-![image](https://github.com/user-attachments/assets/0fa43683-0f39-4d92-9dee-538c3205cf77)
-![image](https://github.com/user-attachments/assets/d77fb7de-7942-44b8-8866-0f77c4b15937)
-![image](https://github.com/user-attachments/assets/912189f6-a57d-4038-9464-8bd79a7a8e82)
-![image](https://github.com/user-attachments/assets/e1c882d9-6216-4f19-88dc-665c53523c6d)
-![image](https://github.com/user-attachments/assets/683c7e9a-f280-4f05-96c3-569a385e1148)
-![image](https://github.com/user-attachments/assets/6c4d1091-ab99-4ec2-8390-436a488b0a07)
-![image](https://github.com/user-attachments/assets/ac501087-8c4d-4290-8aa5-1a7a411a2b7f)
+## Business Dashboard
 
-#### 📉 1. Distribusi Attrition
-- **Deskripsi**: Grafik batang menunjukkan mayoritas karyawan tetap bekerja, namun persentase yang keluar (>10%) tergolong tinggi.
-- **Kesimpulan**: Masalah *attrition* memang nyata dan perlu ditangani secara sistematis.
+- **Deskripsi**:  
+  *Business dashboard* dibuat menggunakan Looker Studio untuk memvisualisasikan faktor-faktor utama *attrition* dan memantau tren secara real-time. Dashboard ini mencakup:  
+  - Distribusi *attrition* berdasarkan departemen, usia, edukasi, dan job role.
+  - Boxplot untuk membandingkan distribusi fitur seperti durasi kerja dan pengaruh pada attrition.  
+- **Manfaat**:  
+  - Membantu manajer HR memahami faktor risiko *attrition* secara visual.  
+  - Memungkinkan pengambilan keputusan berbasis data untuk strategi retensi.  
 
-#### 🔑 2. Top 10 Faktor Penting dari Model Lasso
-- **Deskripsi**: Grafik menunjukkan fitur paling berpengaruh terhadap attrition.
-- **Hasil Penting**:
-  - `OverTime`, `MonthlyIncome`, `Age`, `DistanceFromHome`, dan `JobLevel` menjadi fitur dominan.
-- **Kesimpulan**: Karyawan muda, bergaji rendah, dan yang sering lembur lebih berisiko keluar.
-
-#### 📦 3. Boxplot Faktor vs. Attrition
-- **Insight**:
-  - Karyawan lembur lebih sering keluar.
-  - Gaji rendah dan jarak rumah jauh berkontribusi pada keputusan resign.
-- **Kesimpulan**: Terdapat perbedaan distribusi signifikan pada fitur-fitur penting antar kelompok attrition.
-
-#### 📊 4. Evaluasi Kinerja Model
-- **Hasil Evaluasi**:
-  - R² ≈ 0.24 → Model menjelaskan ~24% variansi data.
-  - MAE dan RMSE cukup tinggi → Perlu perbaikan.
-- **Kesimpulan**: Model regresi saat ini belum cukup akurat untuk prediksi individual, perlu eksplorasi model non-linear seperti Random Forest atau XGBoost.
-
-#### 🏢 5. Attrition Berdasarkan Departemen
-- **Insight**:
-  - Departemen Sales dan HR menunjukkan attrition rate lebih tinggi.
-- **Kesimpulan**: Evaluasi khusus diperlukan pada divisi-divisi dengan beban kerja tinggi atau kepuasan rendah.
-
-#### 👥 6. Attrition Berdasarkan Usia
-- **Insight**:
-  - Karyawan muda lebih sering keluar.
-- **Kesimpulan**: Stabilitas kerja lebih rendah pada kelompok usia muda, penting untuk pendekatan retensi yang disesuaikan.
-
-#### 📅 7. Tren Bulanan (Simulasi)
-- **Insight**:
-  - Terdapat fluktuasi attrition bulanan (misalnya pasca-bonus tahunan).
-- **Kesimpulan**: HR dapat menyusun strategi intervensi berbasis waktu.
-
----
-
-### 💼 Dampak terhadap Business Understanding
-
-- 🔍 **Identifikasi Masalah**: Proyek berhasil mengonfirmasi bahwa attrition >10% adalah masalah serius dan mengidentifikasi faktor-faktor utamanya.
-- 📊 **Insight Berbasis Data**: Memberikan visualisasi dan analisis yang mudah dipahami oleh pemangku kepentingan non-teknis.
-- 🧭 **Arah Kebijakan SDM**:
-  - Penyusunan strategi retensi khusus untuk karyawan muda.
-  - Peninjauan sistem lembur dan kompensasi.
-  - Fokus pada kesejahteraan departemen dengan attrition tinggi.
-- 🚀 **Manfaat Jangka Panjang**: 
-  - Mengurangi biaya rekrutmen dan pelatihan.
-  - Meningkatkan stabilitas tim dan produktivitas.
- 
 Gambar dashboard :
 ![dashboard](https://github.com/user-attachments/assets/e51063fe-8541-4325-b4e3-c68eaebb77bf)
 
 Link dashboard :
 [akses dashboard](https://lookerstudio.google.com/reporting/0edb5137-4d81-4b4e-97af-0856ec7bd25e)
 
+## Conclusion
+
+- **Pencapaian Proyek**:  
+  - Berhasil mengidentifikasi faktor utama penyebab *attrition* seperti lembur, gaji rendah, usia muda, dan jarak rumah ke kantor.  
+  - Membangun model prediktif dengan *Lasso Regression* (*R²* = 0.24), meskipun akurasi masih perlu ditingkatkan.  
+  - Menyediakan *business dashboard* yang memungkinkan monitoring faktor *attrition* secara visual dan intuitif.  
+- **Dampak Bisnis**:  
+  - Memberikan *insight* untuk strategi retensi, seperti peninjauan sistem lembur, peningkatan kompensasi untuk karyawan muda, dan fokus pada departemen dengan *attrition* tinggi (Sales dan HR).  
+  - Mengurangi biaya rekrutmen dan meningkatkan stabilitas tim melalui intervensi berbasis data.  
+- **Saran Perbaikan**:  
+  - Eksplorasi model non-linear seperti *Random Forest* atau *XGBoost* untuk meningkatkan akurasi prediksi.  
+  - Melakukan *feature engineering* tambahan untuk menangkap hubungan non-linear.  
+  - Mengintegrasikan data real-time ke dalam dashboard untuk monitoring yang lebih dinamis.  
