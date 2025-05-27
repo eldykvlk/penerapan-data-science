@@ -41,27 +41,41 @@ Proyek ini bertujuan membantu departemen HR mengidentifikasi faktor-faktor utama
   - *Outlier*: Terdeteksi pada kolom seperti `MonthlyIncome`.  
   - *Tipe Data*: Campuran numerik (`int`, `float`) dan kategorikal (`object`).  
 
-### Setup Environment
+### 🔧 Setup Environment
+
 Dependensi proyek (berdasarkan `requirements.txt`):
-pandas
-matplotlib
-seaborn
-numpy
-scikit-learn
-joblib
+- pandas  
+- matplotlib  
+- seaborn  
+- numpy  
+- scikit-learn  
+- joblib  
 
 Berikut tahapan untuk membuat virtual environment dan menginstal library dari `requirements.txt`.
 
 ### Menggunakan Anaconda
+
+```bash
+# Membuat dan mengaktifkan environment
 conda create --name main-ds python=3.9
 conda activate main-ds
+
+# Menginstal library
 pip install -r requirements.txt
+```
 
 ### Menggunakan Shell/Terminal
+```bash
+# Menginstal pipenv
 pip install pipenv
+
+# Membuat dan masuk ke environment
 pipenv install
 pipenv shell
+
+# Menginstal library
 pip install -r requirements.txt
+```
 
 ## Data Understanding
 
