@@ -50,6 +50,18 @@ numpy
 scikit-learn
 joblib
 
+Berikut tahapan untuk membuat virtual environment dan menginstal library dari `requirements.txt`.
+
+### Menggunakan Anaconda
+conda create --name main-ds python=3.9
+conda activate main-ds
+pip install -r requirements.txt
+
+### Menggunakan Shell/Terminal
+pip install pipenv
+pipenv install
+pipenv shell
+pip install -r requirements.txt
 
 ## Data Understanding
 
